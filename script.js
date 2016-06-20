@@ -430,57 +430,59 @@ var levels =
 var currentLevel = levels[0].slice();
 var levelNumber = 0;
 var texts = [
-    ["The mind is not simple.", 1, 8, 25, false],
-    ["It is made of billions of nerve endings", 1, 8, 26, false],
-    ["The mind can become stronger through exercise.", 2, 14, 20, false],
-    ["The brain can process data in an instant", 3, 12, 20, false],
-    ["Like all of this", 3, 36, 10, false],
+    ["The body is incredibly complex.", 1, 8, 25, false],
+    ["Being formed out of 78 individual organs", 1, 8, 26, false],
+    ["You're blood vessels stretch 150 000km.", 2, 14, 20, false],
+    ["Brains can make 38 000 trillion calculations a second", 3, 10, 20, false],
+    ["Much better than computers", 3, 27, 10, false],
     ["Nice", 3, 1.5, 15, false],
-    ["The brain is connected to the body, This allows reactions.", 3, 4, 8, false],
-    ["This is called the nervous system", 3, 8, 9, false],
-    ["But the brain is not perfect", 4, 5, 18, false],
-    ["It will make mistakes", 4, 26, 18, false],
+    ["The body creates 25 million new cells.", 3, 1, 8, false],
+    ["every second", 3, 9, 9, false],
+    ["But the body isn't perfect", 4, 4, 18, false],
+    ["It can become infected", 4, 26, 18, false],
     ["And can get mental diseases", 4, 28, 9, false],
     ["Like OCD", 4, 6, 9, false],
-    ["The brain uses electrochemical signals", 5, 10, 24, false],
-    ["These can be sent over long disances", 5, 10.2, 25, false],
-    ["The main part of the brain is the:", 5, 20, 10, false],
-    ["cerebral cortex", 5, 25, 11, false],
-    ["This controls", 5, 12, 2, false],
-    ["actions", 5, 13, 3, false],
-    ["and thought", 5, 28, 2, false],
-    ["stress", 6, 9, 24, false],
-    ["anxiety", 6, 14, 24, false],
-    ["depression", 6, 19, 24, false],
-    ["People may be affected by these", 6, 22, 20, false],
-    ["mental health issues at some point", 6, 22, 21, false],
+    ["An average adult is made of 7 octillion atoms", 5, 9, 24, false],
+    ["Thats 7,000,000,000,000 ", 5, 14, 25, false],
+    ["000,000,000,000,000", 5, 15, 26, false],
+    ["wow", 5, 43, 15, false],
+    ["The larges organ in the body is:", 5, 20, 10, false],
+    ["skin. Trolled", 5, 25, 11, false],
+    ["We actually have:", 5, 10, 2, false],
+    ["20 different senses", 5, 9.5, 3, false],
+    ["trolled again", 5, 28, 2, false],
+    ["fatigue", 6, 7, 24, false],
+    ["appetite", 6, 14, 24, false],
+    ["stress", 6, 21, 24, false],
+    ["These are all causes by:", 6, 22, 20, false],
+    ["a lack of exercise", 6, 24, 21, false],
     ["but in more serious cases", 6, 30, 3, false],
-    ["autism", 6, 20, 9, false],
-    ["ADHD", 6, 14.5, 12, false],
-    ["Alzheimer's", 6, 6, 14, false],
-    ["But psychological therapy", 6, 10, 2, false],
-    ["can help", 6, 14, 3, false],
-    ["But what makes us different from animals?", 7, 9, 28, false],
-    ["We have morality", 7, 28, 24, false],
-    ["We can self recognise", 7, 34, 15, false],
-    ["Animals do not have human-like love", 7, 18, 2, false],
-    ["We can question life", 7, 2, 5, false],
-    ["Man can change the balance of harmony", 7, 10, 13, false],
-    ["rather than just stay in homostasis", 7, 10, 14, false],
-    ["But we need to take care of the mind through:", 8, 12, 26, false],
+    ["depression", 6, 20, 9, false],
+    ["diseases", 6, 13, 12, false],
+    ["death", 6, 7, 14, false],
+    ["Do PE", 6, 13, 2, false],
+    ["it can help", 6, 11, 3, false],
+    ["Did you know that you share 50% of you're DNA with a", 7, 9, 28, false],
+    ["Banana", 7, 32, 24, false],
+    ["You're brain is 60% fat", 7, 30, 15, false],
+    ["We breath 12-20 times a minute", 7, 18, 2, false],
+    ["Brains can read at 1000 wpm", 7, 2, 5, false],
+    ["The liver performs over 500 different actions", 7, 9, 13, false],
+    ["The brain can be improved by:", 8, 13, 26, false],
     ["Reading", 8, 43, 19, false],
     ["Exercise", 8, 30, 16, false],
     ["Talking", 8, 23, 15, false],
     ["Meditating", 8, 15, 14, false],
     ["Writing", 8, 2, 9, false],
     ["Having me time", 8, 12, 2, false],
-    ["The cerebrum is divided into 4 lobes", 9, 14, 25, false],
-    ["Frontal lobe", 9, 30, 18, false],
-    ["Parietal lobe", 9, 16, 17, false],
-    ["Occipital lobe", 9, 2, 10, false],
-    ["Temporal lobe", 9, 11, 7, false],
-    ["The brain is an amazing thing", 10, 12, 22, false],
-    ["And your brain is amazing", 10, 2, 11, false],
+    ["There are 5 essential organs", 9, 14, 25, false],
+    ["Brain", 9, 39, 21, false],
+    ["Heart", 9, 16, 17, false],
+    ["Kidneys", 9, 2, 10, false],
+    ["Liver", 9, 11, 7, false],
+    ["Lungs", 9, 24, 19, false],
+    ["The body is an amazing thing", 10, 12, 22, false],
+    ["And your skill is amazing", 10, 1, 10, false],
     ["Because you win", 10, 8, 2, false],
     ["You win", 11, 3, 29, false],
     ["Made by cameron bell", 11, 15, 29, false],
@@ -495,7 +497,7 @@ var texts = [
     ["but can you leave now", 11, 9, 17, false],
     ["writing this text is annoying", 11, 27, 17, false],
     ["OMG you won okay, good job. Now close the tab", 11, 9, 13, false],
-    ["Play testing by Apalak. Everything by Cameron Bell", 11, 9,9, false],
+    ["My group did nothing, ever.", 11, 9,9, false],
     ["I told you not to.", 11, 9,5, false],
     ["rebel", 11, 23,5, false],
     ["I dont like you", 11, 32,5, false],
@@ -605,6 +607,35 @@ var player =
 //Printing
 console.log("Created the player");
 
+//Holds camera position
+var cameraX = 0;
+var cameraY = 0;
+
+function moveCameraBy(x, y)
+{
+    //Move everything (aweful code kill me god)
+    cameraX += x;
+    cameraY += y
+
+    player.x += x;
+    player.y += y;
+
+    Finnish.x += x;
+    Finnish.y += y;
+
+    for(var i = 0; i < MovingLava.length; i++) { MovingLava[i].x += x; MovingLava[i].y += y; }
+    for(var i = 0; i < Removers.length; i++) { Removers[i].x += x; Removers[i].y += y; }
+    for(var i = 0; i < EnemysClone.length; i++) { EnemysClone[i].x += x; EnemysClone[i].y += y; }
+    for(var i = 0; i < Enemys.length; i++) { Enemys[i].x += x; Enemys[i].y += y; }
+    for(var i = 0; i < Movers.length; i++) { Movers[i].x += x; Movers[i].y += y; }
+    for(var i = 0; i < Checkpoints.length; i++) { Checkpoints[i].x += x; Checkpoints[i].y += y; }
+    for(var i = 0; i < Finnish.length; i++) { Finnish[i].x += x; Finnish[i].y += y; }
+    for(var i = 0; i < Walls.length; i++) { Walls[i].x += x; Walls[i].y += y; }
+    for(var i = 0; i < Coins.length; i++) { Coins[i].x += x; Coins[i].y += y; }
+    for(var i = 0; i < Deads.length; i++) { Deads[i].x += x; Deads[i].y += y; }
+    for(var i = 0; i < Lava.length; i++) { Lava[i].x += x; Lava[i].y += y; }
+}
+
 //Every part of the level is one of these 'objects'
 function object()
 {
@@ -671,121 +702,133 @@ function deleter()
 //This function is used in collision checking
 function collide(objectA, objectB)
 {
-    //Find the collision vectors
-    var vectorX = (objectA.x + (objectA.width / 2)) - (objectB.x + (objectB.width / 2));
-    var vectorY = (objectA.y + (objectA.height / 2)) - (objectB.y + (objectB.height / 2));
-
-    //Find the distance between the two objects
-    var deltaWidth = (objectA.width / 2) + (objectB.width / 2);
-    var deltaHeight = (objectA.height / 2) + (objectB.height / 2);
-
-    //Stores the direction of collision
-    var collisionDir = null;
-
-    //Check if the two objects are intersecting on the x and y axis
-    if(Math.abs(vectorX) < deltaWidth && Math.abs(vectorY) < deltaHeight)
+    if(objectA != null && objectB != null)
     {
-        //The direction of collision
-        var directionX = deltaWidth - Math.abs(vectorX);
-        var directionY = deltaHeight - Math.abs(vectorY);
+        //Find the collision vectors
+        var vectorX = (objectA.x + (objectA.width / 2)) - (objectB.x + (objectB.width / 2));
+        var vectorY = (objectA.y + (objectA.height / 2)) - (objectB.y + (objectB.height / 2));
 
-        //Check for vertical collision
-        if(directionX >= directionY)
+        //Find the distance between the two objects
+        var deltaWidth = (objectA.width / 2) + (objectB.width / 2);
+        var deltaHeight = (objectA.height / 2) + (objectB.height / 2);
+
+        //Stores the direction of collision
+        var collisionDir = null;
+
+        //Check if the two objects are intersecting on the x and y axis
+        if(Math.abs(vectorX) < deltaWidth && Math.abs(vectorY) < deltaHeight)
         {
-            //Check for collisions from the top
-            if(vectorY > 0)
-            {
-                objectA.y += directionY;
-                collisionDir = "t";
-            }
+            //The direction of collision
+            var directionX = deltaWidth - Math.abs(vectorX);
+            var directionY = deltaHeight - Math.abs(vectorY);
 
-            //Collisions form the botttom
+            //Check for vertical collision
+            if(directionX >= directionY)
+            {
+                //Check for collisions from the top
+                if(vectorY > 0)
+                {
+                    objectA.y += directionY;
+                    collisionDir = "t";
+                }
+
+                //Collisions form the botttom
+                else
+                {
+                    objectA.y -= directionY;
+                    collisionDir = "b";
+                }
+            }
             else
             {
-                objectA.y -= directionY;
-                collisionDir = "b";
-            }
-        }
-        else
-        {
-            //Check for collisions from the left
-            if(vectorX > 0)
-            {
-                objectA.x += directionX;
-                collisionDir = "l";
-            }
+                //Check for collisions from the left
+                if(vectorX > 0)
+                {
+                    objectA.x += directionX;
+                    collisionDir = "l";
+                }
 
-            //Collisions form the right side
-            else
-            {
-                objectA.x -= directionX;
-                collisionDir = "r";
+                //Collisions form the right side
+                else
+                {
+                    objectA.x -= directionX;
+                    collisionDir = "r";
+                }
             }
         }
+
+        //Return the direction.
+        return collisionDir;
     }
-
-    //Return the direction.
-    return collisionDir;
+    else return null;
 }
 
 //This function is used in collision checking
 function nonDestructiveCollide(objectA, objectB)
 {
-    //Find the collision vectors
-    var vectorX = (objectA.x + (objectA.width / 2)) - (objectB.x + (objectB.width / 2));
-    var vectorY = (objectA.y + (objectA.height / 2)) - (objectB.y + (objectB.height / 2));
-
-    //Find the distance between the two objects
-    var deltaWidth = (objectA.width / 2) + (objectB.width / 2);
-    var deltaHeight = (objectA.height / 2) + (objectB.height / 2);
-
-    //Stores the direction of collision
-    var collisionDir = null;
-
-    //Check if the two objects are intersecting on the x and y axis
-    if(Math.abs(vectorX) < deltaWidth && Math.abs(vectorY) < deltaHeight)
+    if(objectA != null && objectB != null)
     {
-        //The direction of collision
-        var directionX = deltaWidth - Math.abs(vectorX);
-        var directionY = deltaHeight - Math.abs(vectorY);
+        //Find the collision vectors
+        var vectorX = (objectA.x + (objectA.width / 2)) - (objectB.x + (objectB.width / 2));
+        var vectorY = (objectA.y + (objectA.height / 2)) - (objectB.y + (objectB.height / 2));
 
-        //Check for vertical collision
-        if(directionX >= directionY)
+        //Find the distance between the two objects
+        var deltaWidth = (objectA.width / 2) + (objectB.width / 2);
+        var deltaHeight = (objectA.height / 2) + (objectB.height / 2);
+
+        //Stores the direction of collision
+        var collisionDir = null;
+
+        //Check if the two objects are intersecting on the x and y axis
+        if(Math.abs(vectorX) < deltaWidth && Math.abs(vectorY) < deltaHeight)
         {
-            //Check for collisions from the top
-            if(vectorY > 0) collisionDir = "t";
+            //The direction of collision
+            var directionX = deltaWidth - Math.abs(vectorX);
+            var directionY = deltaHeight - Math.abs(vectorY);
 
-            //Collisions form the botttom
-            else collisionDir = "b";
-        }
-        else
-        {
-            //Check for collisions from the left
-            if(vectorX > 0) collisionDir = "l";
+            //Check for vertical collision
+            if(directionX >= directionY)
+            {
+                //Check for collisions from the top
+                if(vectorY > 0) collisionDir = "t";
 
-            //Collisions form the right side
-            else collisionDir = "r";
+                //Collisions form the botttom
+                else collisionDir = "b";
+            }
+            else
+            {
+                //Check for collisions from the left
+                if(vectorX > 0) collisionDir = "l";
+
+                //Collisions form the right side
+                else collisionDir = "r";
+            }
         }
+
+        //Return the direction.
+        return collisionDir;
     }
-
-    //Return the direction.
-    return collisionDir;
+    else return null;
 }
 
 
 function quickCollision(objectA, objectB)
 {
-    var returnVal = false;
-
-    if (objectA.x < objectB.x + objectB.width &&
-    objectA.x + objectA.width > objectB.x &&
-    objectA.y < objectB.y + objectB.height &&
-    objectA.height + objectA.y > objectB.y)
+    if(objectA != null && objectB != null)
     {
-        returnVal = true;
-    }
+        var returnVal = false;
 
-    return returnVal;
+        if (objectA.x < objectB.x + objectB.width &&
+        objectA.x + objectA.width > objectB.x &&
+        objectA.y < objectB.y + objectB.height &&
+        objectA.height + objectA.y > objectB.y)
+        {
+            returnVal = true;
+        }
+
+        return returnVal;
+    }
+    else return false;
 }
 
 function textCollision(objectA, text, x, y)
@@ -860,7 +903,7 @@ function loadLevel()
                 temp.width = TILE;
                 temp.height = TILE;
 
-                temp.colour = 'orange';
+                temp.colour = '#F66';
 
                 temp.startX = x * TILE;
                 temp.startY = y * TILE;
@@ -918,7 +961,7 @@ function loadLevel()
                 temp.y = y * TILE - 3;
                 temp.width = 12;
                 temp.height = 12;
-                temp.colour = '#FF4';
+                temp.colour = '#FC0';
 
                 Coins.push(temp);
             }
@@ -1061,14 +1104,13 @@ window.addEventListener("keydown", setKeyDown, false);
 window.addEventListener("keyup", setKeyUp, false);
 window.addEventListener("load", game);
 
-/*
 myAudio = new Audio('music.mp3');
 myAudio.addEventListener('ended', function() {
     this.currentTime = 0;
     this.play();
 }, false);
 myAudio.play();
-*/
+
 
 //Print messgae
 console.log("Setup input event listeners");
@@ -1421,8 +1463,10 @@ function render()
                 Enemys.splice(j, 1);
             }
         }
-
-        Enemys[i].x += Enemys[i].direction * Enemys[i].speed
+        if(Enemys[i] != null)
+        {
+            Enemys[i].x += Enemys[i].direction * Enemys[i].speed
+        }
 
         //Get collision from the boxes
         var direction = nonDestructiveCollide(player, Enemys[i]);
@@ -1458,7 +1502,7 @@ function render()
         {
             var line = Math.floor(i / 8);
 
-            context.fillStyle = 'yellow';
+            context.fillStyle = '#FC0';
             context.fillRect(TILE * 2 + TILE * i - (line * TILE * 8), TILE * 2 + line * TILE, 6, 6);
         }
     }

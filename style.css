@@ -81,8 +81,8 @@ xmp
     /* Make code blocks, on a grey background with a mechanical font */
     font-family: monospace;
     white-space: pre-wrap;
-    margin-right: 15%;
-    margin-left: 15%;
+    margin-right: 10%;
+    margin-left: 10%;
     text-align: left;
     padding-left: 10px;
     background-color: #4F4F4F;
