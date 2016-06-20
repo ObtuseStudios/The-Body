@@ -15,7 +15,7 @@
 // 48 chars wide, any further will go off the screen
 // 32 chars high, any further will go off the screen
 
-var levels = 
+var levels =
 [
     [
     "************************************************",
@@ -50,7 +50,7 @@ var levels =
     "*                                              *",
     "* @         o o o o o o                        *",
     "************************************************"],
-    
+
     [
     "************************************************",
     "*                                              *",
@@ -84,7 +84,7 @@ var levels =
     "*          *                                   *",
     "*    @    *                                    *",
     "************************************************"],
-    
+
     [
     "************************************************",
     "*                                              *",
@@ -118,7 +118,7 @@ var levels =
     "*     *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*",
     "* @  *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*",
     "************************************************"],
-  
+
 [
     "************************************************",
     "*                                              *",
@@ -220,7 +220,7 @@ var levels =
     "*     **!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*",
     "* @  ***!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*",
     "************************************************"],
-    
+
     [
     "************************************************",
     "*                                              *",
@@ -254,7 +254,7 @@ var levels =
     "*      *                                       *",
     "*!!!!!!*       e   e   e   e          e   e    *",
     "************************************************"],
-    
+
     [
     "************************************************",
     "*!!!!*                   *                     *",
@@ -288,7 +288,7 @@ var levels =
     "*      **                               !!! !  *",
     "*   @  *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*",
     "************************************************"],
-    
+
     [
     "************************************************",
     "*                                              *",
@@ -322,7 +322,7 @@ var levels =
     "*                  *         *                 *",
     "*!!!!!!!!!!!!!!!!!!*e      e *!!!!!!!!!!!!!!!!!*",
     "************************************************"],
-    
+
     [
     "************************************************",
     "*    *           D3     D3 3 8 1               *",
@@ -356,7 +356,7 @@ var levels =
     "*    *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*",
     "* @ *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*",
     "************************************************"],
-    
+
     /*
     [
     "************************************************",
@@ -501,21 +501,21 @@ var texts = [
     ["I dont like you", 11, 32,5, false],
 ];
 
-    
+
 //Animation frame
-(function() 
+(function()
 {
     //Check if anomation request frame has not been set
-    if (!window.requestAnimationFrame) 
-    { 
+    if (!window.requestAnimationFrame)
+    {
         //Set it reagerdless of browser
-        window.requestAnimationFrame = window.webkitRequestAnimationFrame || 
-        window.mozRequestAnimationFrame    || 
-        window.oRequestAnimationFrame      || 
-        window.msRequestAnimationFrame     || 
-        
+        window.requestAnimationFrame = window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame    ||
+        window.oRequestAnimationFrame      ||
+        window.msRequestAnimationFrame     ||
+
         //Set framerate 60
-        function(callback, element) 
+        function(callback, element)
         {
             window.setTimeout(callback, 1000 / FRAME_RATE);
         }
@@ -526,13 +526,13 @@ var texts = [
 console.log("Created animation frame requester");
 
 //Find the current frames that have passed
-function timestamp() 
+function timestamp()
 {
     return window.performance && window.performance.now ? window.performance.now() : new Date().getTime();
 }
 
 //Like mathf.clamp, but for javascript
-function bound(x, min, max) 
+function bound(x, min, max)
 {
     return Math.max(min, Math.min(max, x));
 }
@@ -562,16 +562,16 @@ const KEY_RIGHT = 39; //Right arrow
 const KEY_Q = 81; //For cheaters
 
 const BACKGROUND_COLOUR = '#FFF'; //Back colour of window
-    
+
 //Setup the game canvas
 var canvas = document.getElementById("Window");
 var context = canvas.getContext("2d");
 
 var width = canvas.width = LEVEL_WIDTH * TILE;
 var height = canvas.height = LEVEL_HEIGHT * TILE;
-    
+
 //How many coins the player has collected
-var score = 0; 
+var score = 0;
 var startingScore = 0;
 var maxScore = 1;
 
@@ -586,7 +586,7 @@ console.log("Successfully started the game");
 var currentDeaths = -1;
 
 //The player object has these properties
-var player = 
+var player =
 {
     grounded: false, //Wheather or not the player is actually touching the ground
     jumping: false, //Simply wheraather or not the player is currently jumping
@@ -610,10 +610,10 @@ function object()
 {
     this.x = 0, //This is the x position in meters
     this.y = 0, //This is the y position in meters
-    
+
     this.width = TILE, //The width of the block
     this.height = TILE, //The height of the block
-        
+
     this.colour = 'black' //The block colour
 };
 
@@ -622,20 +622,20 @@ function movingPlatform()
 {
     this.x = 0,
     this.y = 0,
-    
+
     this.width = TILE,
     this.height = TILE,
-        
+
     this.colour = 'grey',
-    
+
     this.startX = 0,
     this.startY = 0,
-    
+
     this.endX = 1,
     this.endY = 1,
-        
+
     this.dir = 'U',
-        
+
     this.direction = 1
 }
 
@@ -644,13 +644,13 @@ function entity()
 {
     this.x = 0,
     this.y = 0,
-        
+
     this.velocityY = 0,
-    this.grounded = false, 
-        
+    this.grounded = false,
+
     this.width = TILE,
     this.height = TILE,
-        
+
     this.direction = 1,
     this.speed = 1
 }
@@ -659,12 +659,12 @@ function deleter()
 {
     this.x = 0, //This is the x position in meters
     this.y = 0, //This is the y position in meters
-    
+
     this.width = TILE, //The width of the block
     this.height = TILE, //The height of the block
-        
+
     this.colour = 'white' //The block colour
-    
+
     this.timer = 0;
 }
 
@@ -674,33 +674,33 @@ function collide(objectA, objectB)
     //Find the collision vectors
     var vectorX = (objectA.x + (objectA.width / 2)) - (objectB.x + (objectB.width / 2));
     var vectorY = (objectA.y + (objectA.height / 2)) - (objectB.y + (objectB.height / 2));
-    
+
     //Find the distance between the two objects
     var deltaWidth = (objectA.width / 2) + (objectB.width / 2);
     var deltaHeight = (objectA.height / 2) + (objectB.height / 2);
-    
+
     //Stores the direction of collision
     var collisionDir = null;
-    
+
     //Check if the two objects are intersecting on the x and y axis
     if(Math.abs(vectorX) < deltaWidth && Math.abs(vectorY) < deltaHeight)
     {
         //The direction of collision
         var directionX = deltaWidth - Math.abs(vectorX);
         var directionY = deltaHeight - Math.abs(vectorY);
-        
+
         //Check for vertical collision
         if(directionX >= directionY)
         {
             //Check for collisions from the top
-            if(vectorY > 0) 
+            if(vectorY > 0)
             {
                 objectA.y += directionY;
                 collisionDir = "t";
             }
-            
+
             //Collisions form the botttom
-            else 
+            else
             {
                 objectA.y -= directionY;
                 collisionDir = "b";
@@ -709,21 +709,21 @@ function collide(objectA, objectB)
         else
         {
             //Check for collisions from the left
-            if(vectorX > 0) 
+            if(vectorX > 0)
             {
                 objectA.x += directionX;
                 collisionDir = "l";
             }
-            
+
             //Collisions form the right side
-            else 
+            else
             {
                 objectA.x -= directionX;
                 collisionDir = "r";
             }
         }
     }
-    
+
     //Return the direction.
     return collisionDir;
 }
@@ -734,27 +734,27 @@ function nonDestructiveCollide(objectA, objectB)
     //Find the collision vectors
     var vectorX = (objectA.x + (objectA.width / 2)) - (objectB.x + (objectB.width / 2));
     var vectorY = (objectA.y + (objectA.height / 2)) - (objectB.y + (objectB.height / 2));
-    
+
     //Find the distance between the two objects
     var deltaWidth = (objectA.width / 2) + (objectB.width / 2);
     var deltaHeight = (objectA.height / 2) + (objectB.height / 2);
-    
+
     //Stores the direction of collision
     var collisionDir = null;
-    
+
     //Check if the two objects are intersecting on the x and y axis
     if(Math.abs(vectorX) < deltaWidth && Math.abs(vectorY) < deltaHeight)
     {
         //The direction of collision
         var directionX = deltaWidth - Math.abs(vectorX);
         var directionY = deltaHeight - Math.abs(vectorY);
-        
+
         //Check for vertical collision
         if(directionX >= directionY)
         {
             //Check for collisions from the top
             if(vectorY > 0) collisionDir = "t";
-            
+
             //Collisions form the botttom
             else collisionDir = "b";
         }
@@ -762,12 +762,12 @@ function nonDestructiveCollide(objectA, objectB)
         {
             //Check for collisions from the left
             if(vectorX > 0) collisionDir = "l";
-            
+
             //Collisions form the right side
             else collisionDir = "r";
         }
     }
-    
+
     //Return the direction.
     return collisionDir;
 }
@@ -776,40 +776,40 @@ function nonDestructiveCollide(objectA, objectB)
 function quickCollision(objectA, objectB)
 {
     var returnVal = false;
-    
+
     if (objectA.x < objectB.x + objectB.width &&
     objectA.x + objectA.width > objectB.x &&
     objectA.y < objectB.y + objectB.height &&
-    objectA.height + objectA.y > objectB.y) 
+    objectA.height + objectA.y > objectB.y)
     {
         returnVal = true;
     }
-    
+
     return returnVal;
 }
 
 function textCollision(objectA, text, x, y)
 {
     var returnVal = false;
-    
+
     var textWidth = context.measureText(text).width;
     if(levelNumber != (levels.length - 1)) var textHeight = 6 * TILE;
     else var textHeight = 2 * TILE;
-    
+
     var aHeight = objectA.height;
-    
+
     if (objectA.x < x + textWidth &&
     objectA.x + objectA.width > x &&
     objectA.y < y + textHeight &&
-    aHeight + objectA.y > y) 
+    aHeight + objectA.y > y)
     {
         returnVal = true;
     }
-    
+
     return returnVal;
 }
 
-context.font = "11pt Courier New";    
+context.font = "11pt Courier New";
 
 //All the types of'objects' in the level
 var Removers = [];
@@ -839,11 +839,11 @@ function loadLevel()
     Coins = [];
     Deads = [];
     Lava = [];
-    
+
     score = 0;
-    
+
     console.log("Level file loaded as follows: ");
-    
+
     var moveNext = null;
     for(var y = 0; y < levels[levelNumber].length; y++)
     {
@@ -851,7 +851,7 @@ function loadLevel()
         {
             var char = levels[levelNumber][y].charAt(x);
             var current = x * y;
-            
+
             if(moveNext != null)
             {
                 var temp = new movingPlatform();
@@ -859,12 +859,12 @@ function loadLevel()
                 temp.y = y * TILE;
                 temp.width = TILE;
                 temp.height = TILE;
-                
+
                 temp.colour = 'orange';
-                
+
                 temp.startX = x * TILE;
                 temp.startY = y * TILE;
-                
+
                 if(moveNext == 'D')
                 {
                     temp.endX = x * TILE;
@@ -872,7 +872,7 @@ function loadLevel()
                     temp.direction = 1;
                     temp.dir = 'D';
                 }
-                
+
                 if(moveNext == 'U')
                 {
                     temp.endX = x * TILE;
@@ -880,37 +880,37 @@ function loadLevel()
                     temp.direction = -1;
                     temp.dir = 'U';
                 }
-                
+
                 MovingLava.push(temp);
-                
+
                 moveNext = null;
                 continue;
             }
-            
+
             if(char === "*")
             {
-                var temp = new object();  
+                var temp = new object();
                 temp.x = x * TILE;
                 temp.y = y * TILE;
                 temp.width = TILE;
                 temp.height = TILE;
                 temp.colour = '#555';
-                
+
                 Walls.push(temp);
             }
- 
+
             else if(char === "!")
             {
-                var temp = new object();  
+                var temp = new object();
                 temp.x = x * TILE;
                 temp.y = y * TILE;
                 temp.width = TILE;
                 temp.height = TILE;
                 temp.colour = '#F66';
-                
+
                 Lava.push(temp);
             }
-            
+
             else if(char === "o")
             {
                 var temp = new object();
@@ -919,21 +919,21 @@ function loadLevel()
                 temp.width = 12;
                 temp.height = 12;
                 temp.colour = '#FF4';
-                
+
                 Coins.push(temp);
             }
-                
+
             else if(char === "x")
             {
-                var temp = new object();  
+                var temp = new object();
                 temp.x = x * TILE;
                 temp.y = y * TILE;
                 temp.width = TILE;
                 temp.height = TILE;
-                
+
                 Deads.push(temp);
             }
-            
+
             else if(!isNaN(char) && char != ' ')
             {
                 var temp = new movingPlatform();
@@ -941,72 +941,72 @@ function loadLevel()
                 temp.y = y * TILE;
                 temp.width = TILE;
                 temp.height = TILE;
-                
+
                 temp.colour = '#88F';
-                
+
                 temp.startX = temp.x;
                 temp.startY = temp.y;
                 temp.endX = temp.x + parseInt(char) * TILE;
                 temp.endY = temp.y;
-                
+
                 Movers.push(temp);
             }
-            
+
             else if(char === "e")
             {
                 var temp = new entity();
-                
+
                 temp.x = x * TILE;
                 temp.y = y * TILE;
                 temp.width = TILE;
                 temp.height = TILE;
-                
+
                 temp.colour = 'brown';
-                
+
                 temp.direction = 1;
                 temp.speed = 2;
-                
+
                 Enemys.push(temp);
             }
-            
+
             else if (char === "i")
             {
                 var temp = new deleter();
-                
+
                 temp.x = x * TILE;
                 temp.y = y * TILE;
                 temp.width = TILE;
                 temp.height = TILE;
                 temp.timer = 0;
-                
+
                 temp.colour = '#B2D'
-                
+
                 Removers.push(temp);
             }
-            
+
             else if(char === "c")
             {
-                var temp = new object();  
+                var temp = new object();
                 temp.x = x * TILE;
                 temp.y = y * TILE;
                 temp.width = TILE;
                 temp.height = TILE;
                 temp.colour = '#F2F';
-                
+
                 Checkpoints.push(temp);
             }
-            
+
             else if(char === "U" || char === "D" || char === "L" || char === "R")
             {
-                moveNext = char;    
+                moveNext = char;
             }
-            
+
             else if(char === "@")
             {
                 player.spawnX = x * TILE;
                 player.spawnY = y * TILE;
             }
-            
+
             else if(char === ".")
             {
                 Finnish = new object();
@@ -1018,7 +1018,7 @@ function loadLevel()
             }
         }
     }
-    
+
     //Print messgae
     console.log("Generated the level");
     EnemysClone = Enemys.slice(0);
@@ -1036,21 +1036,21 @@ loadLevel();
 var keys = [];
 
 //Create key down input function
-function setKeyDown(current) 
+function setKeyDown(current)
 {
     //Only check for input if the game is the target.
     if(current.target == document.body)
     {
         //Stop default inputs.
         current.preventDefault();
-        
+
         //Set the array value to true
         keys[current.keyCode] = true;
     }
 }
 
 //Create key up input function
-function setKeyUp(current) 
+function setKeyUp(current)
 {
     //Delete the array value
     delete keys[current.keyCode];
@@ -1062,7 +1062,7 @@ window.addEventListener("keyup", setKeyUp, false);
 window.addEventListener("load", game);
 
 /*
-myAudio = new Audio('music.mp3'); 
+myAudio = new Audio('music.mp3');
 myAudio.addEventListener('ended', function() {
     this.currentTime = 0;
     this.play();
@@ -1079,35 +1079,38 @@ function respawn()
     //Use the player spawn position
     player.velocityX = 0;
     player.velocityY = 0;
-    
+
     player.x = player.spawnX;
     player.y = player.spawnY;
-    
+
     //Reset enemys
     Enemys = EnemysClone.slice(0);
     Removers = RemoversClone.slice(0);
-    
+
     for(var i = 0; i < Removers.length; i++)
     {
         Removers[i].timer = 0;
     }
-    
+
     currentDeaths++;
     if (typeof deaths !== 'undefined') deaths.innerHTML = "You have: "+ currentDeaths + " deaths. And you are  on level: " + levelNumber + "/10";
-    
+
     //Print message
     console.log("Player died. Respawning");
 }
 
 function nextLevel()
 {
-    currentLevel.length = 0;
-    levelNumber++;
-    currentDeaths--;
-    currentLevel = levels[levelNumber].slice();
-    loadLevel();
-    console.log("Level completed");
-    respawn();
+    if(levelNumber < levels.length - 1)
+    {
+        currentLevel.length = 0;
+        levelNumber++;
+        currentDeaths--;
+        currentLevel = levels[levelNumber].slice();
+        loadLevel();
+        console.log("Level completed");
+        respawn();
+    }
 }
 
 //Call it once, when the game begins
@@ -1128,23 +1131,23 @@ function update()
             player.jumping = true;
         }
     }
-    
+
     //Check left arrow input and the player is not max speed
-    if(keys[KEY_LEFT] && player.velocityX > -player.speed) 
+    if(keys[KEY_LEFT] && player.velocityX > -player.speed)
     {
         player.velocityX -= ACCELERATION;
     }
-        
+
     //Check right arrow input and the player is not max speed
-    if(keys[KEY_RIGHT] && player.velocityX < player.speed) 
+    if(keys[KEY_RIGHT] && player.velocityX < player.speed)
     {
         player.velocityX += ACCELERATION;
     }
-    
+
     //Apply the force of friction on the x-axis
     player.velocityX *= FRICTION;
     player.velocityY += GRAVITY;
-    
+
     //Actually apply the velocity
     player.y += player.velocityY;
     player.x += player.velocityX;
@@ -1154,26 +1157,26 @@ function render()
 {
     //Clear previous frame.
     context.clearRect(0, 0, width, height);
-    
+
     context.fillStyle = BACKGROUND_COLOUR;
     context.fillRect(0, 0, width, height);
-    
+
     //Assume the player is not grounded unless there is a collision
     player.grounded = false;
-    
+
     //Draw walls
     for(var i = 0; i < Walls.length; i++)
     {
         //Get collision from the boxes
         var direction = collide(player, Walls[i]);
-        
+
         //Find the direction of collision
         if(direction === "l" || direction === "r")
         {
             player.velocityX = 0;
             player.jumping = false;
         }
-        
+
         //Find different vertical collision
         else if(direction === "b")
         {
@@ -1187,50 +1190,50 @@ function render()
         {
             player.velocityY = 0;
         }
-        
+
         //Draw the boxes
         context.fillStyle = Walls[i].colour;
         context.fillRect(Walls[i].x, Walls[i].y, Walls[i].width, Walls[i].height);
     }
-    
+
     //loop through the coins
     for(var i = 0; i < Coins.length; i++)
     {
         //Draw the coins
         context.fillStyle = Coins[i].colour;
         context.fillRect(Coins[i].x, Coins[i].y, Coins[i].width, Coins[i].height);
-        
+
         //On collision increase score and destroy coin
         if(collide(player, Coins[i]) != null)
         {
             //Increase score
             score++;
-            
+
             //Destroy coin
             Coins.splice(i, 1);
-            
+
             //Make sure to draw the other coins correctly
             if(i != 0) i--;
         }
     }
-    
+
     //Draw all lava
     for(var i = 0; i < Lava.length; i++)
     {
         //Check for collision, if so respawn
         if(collide(player, Lava[i]) != null) respawn();
-        
+
         //Draw the lava tiles
         context.fillStyle = Lava[i].colour;
         context.fillRect(Lava[i].x, Lava[i].y, Lava[i].width, Lava[i].height);
     }
-    
+
     //Check for collision withs deads
-    for(var i = 0; i < Deads.length; i++) 
+    for(var i = 0; i < Deads.length; i++)
     {
         if(collide(player, Deads[i]) != null) respawn();
     }
-    
+
     //Draw the max score in the top left corener
     if(levelNumber != (levels.length - 1))
     {
@@ -1242,7 +1245,7 @@ function render()
             context.fillRect(TILE * 2 + TILE * i - (line * TILE * 8), TILE * 2 + line * TILE, 6, 6);
         }
     }
-    
+
     //Draw the checkpoints
     for(var i = 0; i < Checkpoints.length; i++)
     {
@@ -1251,40 +1254,40 @@ function render()
         {
             Checkpoints[i].colour = '#FAF';
             startingScore = score;
-            
+
             player.spawnX = Checkpoints[i].x;
             player.spawnY = Checkpoints[i].y;
         }
-        
+
         //Draw
         context.fillStyle = Checkpoints[i].colour;
         context.fillRect(Checkpoints[i].x, Checkpoints[i].y, Checkpoints[i].width, Checkpoints[i].height);
     }
-    
+
     for(var i = 0; i < Movers.length; i++)
     {
         if(Movers[i].x >= Movers[i].endX)
         {
             Movers[i].direction = -1;
         }
-        
+
         if(Movers[i].x <= Movers[i].startX)
         {
-            Movers[i].direction = 1;            
+            Movers[i].direction = 1;
         }
-        
+
         Movers[i].x += Movers[i].direction;
-        
+
         //Get collision from the boxes
         var direction = collide(player, Movers[i]);
-        
+
         //Find the direction of collision
         if(direction === "l" || direction === "r")
         {
             player.velocityX = 0;
             player.jumping = false;
         }
-        
+
         //Find different vertical collision
         else if(direction === "b")
         {
@@ -1299,11 +1302,11 @@ function render()
         {
             player.velocityY = 0;
         }
-        
+
         context.fillStyle = Movers[i].colour;
         context.fillRect(Movers[i].x, Movers[i].y, Movers[i].width, Movers[i].height);
     }
-    
+
     for(var i = 0; i < MovingLava.length; i++)
     {
         if(MovingLava[i].dir == 'U')
@@ -1322,48 +1325,48 @@ function render()
         }
 
         MovingLava[i].y -= MovingLava[i].direction;
-        
+
         if(quickCollision(player, MovingLava[i]))
         {
             respawn();
         }
-        
+
         context.fillStyle = MovingLava[i].colour;
         context.fillRect(MovingLava[i].x, MovingLava[i].y, MovingLava[i].width, MovingLava[i].height);
     }
-    
+
     if(quickCollision(player, Finnish))
     {
         Finnish.colour = 'green';
-        
+
         nextLevel();
     }
-    
+
     for(var i = 0; i < Removers.length; i++)
     {
         context.fillStyle = Removers[i].colour;
         context.fillRect(Removers[i].x, Removers[i].y, Removers[i].width, Removers[i].height);
-        
+
         //Get collision from the boxes
         var direction = collide(player, Removers[i]);
-        
+
         //Find the direction of collision
         if(direction === "l" || direction === "r")
         {
             player.velocityX = 0;
             player.jumping = false;
         }
-        
+
         //Find different vertical collision
         else if(direction === "b")
         {
             player.grounded = true;
             player.velocityY = 0;
             player.jumping = false;
-            
+
             Removers[i].timer++;
         }
-        
+
         if(Removers[i].timer > 0)
         {
             Removers.splice(i, 1);
@@ -1375,22 +1378,22 @@ function render()
             player.velocityY = 0;
         }
     }
-    
+
     for(var i = 0; i < Enemys.length; i++)
     {
         context.fillStyle = Enemys[i].colour;
         context.fillRect(Enemys[i].x, Enemys[i].y, Enemys[i].width, Enemys[i].height);
-        
+
         Enemys[i].velocityY += GRAVITY;
-        
+
         Enemys[i].y += Enemys[i].velocityY;
-        
+
         Enemys[i].grounded = false;
-        
+
         for(var j = 0; j < Walls.length; j++)
         {
             var wallCol = collide(Enemys[i], Walls[j]);
-            
+
             if(wallCol === "l" || wallCol === "r") Enemys[i].direction *= -1;
             if(wallCol === "b")
             {
@@ -1398,19 +1401,19 @@ function render()
                 Enemys[i].grounded = true;
             }
         }
-        
+
         for(var j = 0; j < Enemys.length; j++)
         {
             if(j == i) continue;
-            
+
             var selfCol = nonDestructiveCollide(Enemys[i], Enemys[j]);
-            
-            if(selfCol === "l" || selfCol === "r") 
+
+            if(selfCol === "l" || selfCol === "r")
             {
                 Enemys[i].direction *= -1;
                 Enemys[j].direction *= -1;
             }
-            
+
             if (selfCol == "b")
             {
                 Enemys[i].velocityY = -JUMP_POWER;
@@ -1418,12 +1421,12 @@ function render()
                 Enemys.splice(j, 1);
             }
         }
-        
+
         Enemys[i].x += Enemys[i].direction * Enemys[i].speed
-        
+
         //Get collision from the boxes
         var direction = nonDestructiveCollide(player, Enemys[i]);
-        
+
         //Find the direction of collision
         if(direction === "l" || direction === "r") respawn();
 
@@ -1431,24 +1434,24 @@ function render()
         else if(direction === "b")
         {
             Enemys.splice(i, 1);
-            
+
             //Set jumping true, and add to the y velocity
             player.velocityY = -JUMP_POWER;
             player.grounded = false;
             player.jumping = true;
         }
-        
+
         for(var k = 0; k < Lava.length; k++)
         {
             if(quickCollision(Enemys[i], Lava[k])) Enemys.splice(i, 1);
         }
     }
-    
+
     //Draw
     context.fillStyle = Finnish.colour;
     context.fillRect(Finnish.x, Finnish.y, Finnish.width, Finnish.height);
-    
-    //Draw the score in the top left corener of the screen    
+
+    //Draw the score in the top left corener of the screen
     if(levelNumber != (levels.length - 1))
     {
         for(var i = 0; i < score; i++)
@@ -1459,14 +1462,14 @@ function render()
             context.fillRect(TILE * 2 + TILE * i - (line * TILE * 8), TILE * 2 + line * TILE, 6, 6);
         }
     }
-        
+
     //Stop moving when grounded
-    if(player.grounded) 
+    if(player.grounded)
     {
         player.velocityY = 0;
     }
-    
-    
+
+
     //Draw the text
     for(var i = 0; i < texts.length; i++)
     {
@@ -1476,7 +1479,7 @@ function render()
             {
                 texts[i][4] = true;
             }
-            
+
             if(texts[i][4])
             {
                 context.fillStyle = 'black';
@@ -1490,16 +1493,16 @@ function render()
 }
 
 //Called every frame
-function game() 
+function game()
 {
     var deaths = document.getElementById("deaths");
-    
+
     //Gets input and calculates
     update();
-    
+
     //Draws to screen
     render();
-    
+
     //Repeat the frame
     requestAnimationFrame(game);
 }
