@@ -1,0 +1,112 @@
+@font-face 
+{
+  font-family: 'Roboto';
+  src: url('roboto.eot'); /* IE9 Compat Modes */
+  src: url('roboto.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('roboto.woff') format('woff'), /* Modern Browsers */
+  url('roboto.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+body
+{
+    font-family: Roboto, Helvetica, sans-serif, monospace;
+    background-color: #555;
+    text-align: center;
+    margin: 8px;
+    color: #FFF;
+}
+
+h1
+{
+    text-transform: uppercase;
+    font-size: 6em;
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: #FFF;
+    margin-bottom: -8px;
+}
+
+p
+{
+    color: #FFF;
+}
+
+#Spacing
+{
+    padding-right: 15%;
+    padding-left: 15%;
+}
+
+#Game
+{
+    margin-right: 10%;
+    margin-left: 10%;
+    background-color: #EEE;
+}
+
+#Window
+{
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    background-color: #6dbdf4;
+}
+
+#Full
+{
+    margin: 0 auto;
+    width: 90%;
+    background-color: #CCC;
+}
+
+#Controls
+{
+    padding-top: 10px;
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    color: #FFF;
+}
+
+#deaths
+{
+    font-size: 14px;
+    letter-spacing: 1.2px;
+    color: #FFF;
+    font-weight: bold;
+}
+
+xmp
+{
+    /* Make code blocks, on a grey background with a mechanical font */
+    font-family: monospace;
+    white-space: pre-wrap;
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: left;
+    padding-left: 10px;
+    background-color: #f2f2f2;
+    color: #FFF;
+}
+
+button
+{
+    width: 140px;
+    height: 50px;
+    font-weight: bold;
+    font-size 18px;
+    background-color: #E7E7E7;
+    border: none;
+    color: black;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+footer
+{
+    padding-top: 60px;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: 400;
+    color: #FFF;
+}

@@ -1,0 +1,67 @@
+<DOCTYEPE html>
+
+<html>
+    <head>
+        <!-- Title the site more appropriatly -->
+        <title>The Body</title>
+        
+        <!-- Link the favicon -->
+        <link rel="icon" type="img/ico" href="favicon.ico">
+        
+        <!--Link the css code -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    
+    <body>
+        <!-- Makes it so that the page only uses 80% horizontal -->
+        <div id="Spacing">
+            <!--Add a title to the top of the page -->
+            <h1>The Body</h1>
+
+            <!--Insert a horizontal line -->
+            <hr>
+            
+            <!--A description of the site -->
+            <p>The body is a minimalist platformer that teaches the player about the human body through gameplay. In doing this it creates an education game that is engaging but still informative. In game acions relate to the information presented. By the way, if your readin this rememeber: THis was made my Caeron  Bell, and noone else!</p>
+            
+            <!--Spacing -->
+            <br><br>
+            
+            <!--The game div -->
+            <div id="Game">
+                <!--The actual javascript game -->
+                <canvas id="Window" width="640" height="480"></canvas>
+                <script src="script.js"></script>
+            </div>
+            
+            <p id="deaths">You have: 0 deaths. And you are on level: 0/10</p>
+            
+            <!-- Description of controls -->
+            <p id="Controls">
+                Use '<b>Left and Right</b>' arrows to move horizontally. 
+                To jump press either '<b>Space or Up</b>'.
+            </p>
+            
+            <!-- Space -->
+            <br>
+            
+            <button onClick="nextLevel()">Next Level</button>
+            
+            <!--Spacing -->
+            <br><br>
+            
+            <!--Create a button linking to the fullscreen.html -->
+            <a href="fullscreen.html">
+                <button>Play Fullscreen</button>
+            </a>
+            
+            <br>
+            
+            <!--Some footer text -->
+            <footer>This site was made by: Cameron.
+                This was for our BFZ assignment. I hope you have fun 
+                playing our text adventure game. The favicon graphic was 
+                made by: benjamintseng, but was recoloured.</footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+{
+    //App info
+    "manifest_version": 2,
+    "name": "The Mind - Cameron Bell",
+    "short_name": "The Mind",
+    "version": "0.1.26",
+
+    //App description icon, and language
+    "description": "Made by Cameron Bell, a fun and challenging platformer about the human mind!",
+
+    "icons": 
+    {
+    "16": "icon_16.png",
+    "48": "icon_48.png",
+    "128": "icon_128.png"
+    },
+
+    //App properties
+    "author": "Cameron Bell - Obtuse Studios",
+
+    "app": 
+    {
+    "background": 
+    {
+    "scripts": ["offlineScript.js"]
+    }
+    },
+
+    //Other properties
+    "offline_enabled": true
+}

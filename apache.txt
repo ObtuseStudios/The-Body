@@ -1,0 +1,12 @@
+Hosting:
+Name: www.themind.comlu.com
+Server: server38.000webhost.com
+Activated on: 2016-03-01 01:59
+Run out: 3 months
+Ip: 31.170.160.102
+Ver: 2.2.19 (Unix)
+
+Apache login detail:
+
+Username: a9651489
+Password: *******
